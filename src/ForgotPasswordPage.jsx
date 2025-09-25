@@ -9,7 +9,7 @@ function ForgotPasswordPage() {
 
     const handleSend = async () => {
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/forgot-password`, {
+            const response = await fetch('https://deals-project-ft1u.onrender.com/api/forgot-password', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email }),
@@ -31,7 +31,7 @@ function ForgotPasswordPage() {
 
     const handleOk = () => {
         setShowMessage(false);
-        setEmail('');
+        setEmail(''); // Очищаем поле
     };
 
     return (

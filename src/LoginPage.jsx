@@ -12,7 +12,7 @@ function LoginPage() {
 
     const handleLogin = async () => {
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/login`, {
+            const response = await fetch('https://deals-project-ft1u.onrender.com/api/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),
@@ -67,7 +67,7 @@ function LoginPage() {
                     </div>
                     <button className="sign-in-btn" onClick={handleLogin}>Sign In</button>
                     <p className="signup">
-                        Don’t have account? <a href="#" onClick={() => navigate('/register')}>Sign Up</a>
+                        Don't have account? <a href="#" onClick={() => navigate('/register')}>Sign Up</a>
                     </p>
                     {error && <p className="text-red-500 text-center mt-2">{error}</p>}
                 </div>

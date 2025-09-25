@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchDeals = createAsyncThunk('deals/fetchDeals', async () => {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/deals`, { mode: 'cors' });
+    const response = await fetch('https://deals-project-ft1u.onrender.com/api/deals', { mode: 'cors' });
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
     const data = await response.json();
     return data;

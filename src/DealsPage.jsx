@@ -10,7 +10,7 @@ const DealsPage = () => {
     useEffect(() => {
         const fetchDeals = async () => {
             try {
-                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/deals`, { mode: 'cors' });
+                const response = await fetch('https://deals-project-ft1u.onrender.com/api/deals', { mode: 'cors' });
                 if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
                 const data = await response.json();
                 setDeals(data);
@@ -40,7 +40,7 @@ const DealsPage = () => {
                 <div className="main-heading">The chemical negatively charged</div>
                 <div className="subtext">
                     Numerous calculations predict, and experiments confirm, that the force field reflects the beam,
-                    while the mass defect is not formed. The chemical compound is negatively charged.
+                    while the mass defect is not found. The chemical compound is negatively charged.
                 </div>
             </div>
             <div className="deals-section landing-deals-section">

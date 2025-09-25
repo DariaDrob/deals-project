@@ -12,7 +12,7 @@ function RegistrationPage() {
 
     const handleRegister = async () => {
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/register`, {
+            const response = await fetch('https://deals-project-ft1u.onrender.com/api/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),
