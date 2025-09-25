@@ -10,26 +10,28 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Настройка CSP для устранения предупреждений DevTools
+
 app.use((req, res, next) => {
-    res.setHeader('Content-Security-Policy', "default-src 'self'; connect-src 'self' http://localhost:5000 ws://localhost:5000; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline'");
+    res.setHeader(
+        'Content-Security-Policy',
+        "default-src 'self'; connect-src 'self' https://*.supabase.co https://*.onrender.com; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline'"
+    );
     next();
 });
 
-// Инициализация Supabase клиента
+
 const supabaseUrl = 'https://yqmlhtvekngeplfhgxxm.supabase.co';
 const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-// Таблица пользователей в Supabase
+
 const usersTable = 'users';
 
-// Маршрут для корневой страницы (чтобы избежать 404)
+
 app.get('/', (req, res) => {
     res.json({ message: 'API Backend is running! Use /api/deals for deals data.' });
 });
 
-// Endpoint для регистрации
 app.post('/api/register', async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -60,7 +62,7 @@ app.post('/api/register', async (req, res) => {
     }
 });
 
-// Endpoint для логина
+
 app.post('/api/login', async (req, res) => {
     const { email, password } = req.body;
     console.log('Login attempt:', { email }); // Лог для отладки
@@ -71,28 +73,25 @@ app.post('/api/login', async (req, res) => {
             .eq('email', email)
             .single();
 
-        console.log('Supabase user query result:', { user, error }); // Лог результата запроса
-
         if (error || !user) {
             console.log('User not found or error:', error);
             return res.status(400).json({ error: 'Invalid email or password' });
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
-        console.log('Password match:', isMatch); // Лог сравнения пароля
-
         if (!isMatch) {
             return res.status(400).json({ error: 'Invalid email or password' });
         }
 
-        const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET || 'your-jwt-secret', { expiresIn: '1h' });
         res.json({ token });
     } catch (err) {
         console.error('Login error:', err);
         res.status(500).json({ error: 'Server error' });
     }
 });
-// Эндпоинт для получения данных сделок
+
+
 app.get('/api/deals', async (req, res) => {
     try {
         const { data, error } = await supabase
@@ -122,6 +121,7 @@ app.get('/api/deals', async (req, res) => {
         res.status(500).json({ error: 'Server error' });
     }
 });
+
 app.post('/api/forgot-password', async (req, res) => {
     const { email } = req.body;
     console.log('Forgot password request for:', email);
@@ -151,4 +151,6 @@ app.post('/api/forgot-password', async (req, res) => {
     }
 });
 
-app.listen(5000, () => console.log('Backend on http://localhost:5000'));
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Backend on http://localhost:${PORT}`));

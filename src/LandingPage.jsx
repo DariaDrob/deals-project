@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Только useNavigate от react-router-dom
-import { useDispatch, useSelector } from 'react-redux'; // useDispatch и useSelector от react-redux
-import { fetchDeals } from './dealsSlice'; // Новый slice для deals
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchDeals } from './dealsSlice';
 
 function LandingPage() {
     const navigate = useNavigate();
@@ -42,7 +42,7 @@ function LandingPage() {
                                 height: '400px',
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center',
-                                backgroundImage: `ur[](http://localhost:8080${deal.image_url})`,
+                                backgroundImage: `url(${deal.image_url})`,
                                 position: 'relative',
                             }}
                         >

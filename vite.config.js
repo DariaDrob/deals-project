@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
     server: {
         host: '127.0.0.1',
-        port: 5174,
+        port: 8080,
         watch: {
             ignored: ['**/favicon.ico'],
         },

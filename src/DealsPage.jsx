@@ -10,7 +10,7 @@ const DealsPage = () => {
     useEffect(() => {
         const fetchDeals = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/deals', { mode: 'cors' });
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/deals`, { mode: 'cors' });
                 if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
                 const data = await response.json();
                 setDeals(data);
@@ -55,7 +55,7 @@ const DealsPage = () => {
                                 height: '400px',
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center',
-                                backgroundImage: `ur[](http://localhost:8080${deal.image_url})`,
+                                backgroundImage: `url(${deal.image_url})`,
                                 position: 'relative',
                             }}
                         >

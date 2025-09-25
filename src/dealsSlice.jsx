@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchDeals = createAsyncThunk('deals/fetchDeals', async () => {
-    const response = await fetch('http://localhost:5000/api/deals', { mode: 'cors' });
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/deals`, { mode: 'cors' });
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
     const data = await response.json();
     return data;
@@ -32,4 +32,4 @@ const dealsSlice = createSlice({
     },
 });
 
-export default dealsSlice.reducer; // Экспортируем reducer как default
+export default dealsSlice.reducer;
