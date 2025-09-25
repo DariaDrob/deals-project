@@ -1,0 +1,84 @@
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+const DealsPage = () => {
+    const [deals, setDeals] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchDeals = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/api/deals', { mode: 'cors' });
+                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+                const data = await response.json();
+                setDeals(data);
+            } catch (err) {
+                setError(err.message === 'Failed to fetch' ? 'Backend server is not running. Please start it on port 5000.' : err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchDeals();
+    }, []);
+
+    const handleSignOut = () => {
+        navigate('/');
+    };
+
+    if (loading) return <p>Loading deals...</p>;
+    if (error) return <p style={{ color: 'red' }}>Error: {error} <button onClick={() => window.location.reload()}>Retry</button></p>;
+
+    return (
+        <div>
+            <div className="top-bar"></div>
+            <button className="signup-out-btn" onClick={handleSignOut}>Sign Out</button>
+            <div className="background">
+                <div className="overlay"></div>
+                <div className="main-heading">The chemical negatively charged</div>
+                <div className="subtext">
+                    Numerous calculations predict, and experiments confirm, that the force field reflects the beam,
+                    while the mass defect is not formed. The chemical compound is negatively charged.
+                </div>
+            </div>
+            <div className="deals-section landing-deals-section">
+                <h2 className="deals-heading landing-deals-heading">Open Deals</h2>
+                <div className="deals-grid landing-deals-grid">
+                    {deals.map((deal, index) => (
+                        <div
+                            key={deal.id}
+                            className={`picture${index + 1}`}
+                            style={{
+                                width: '630px',
+                                height: '400px',
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                backgroundImage: `ur[](http://localhost:8080${deal.image_url})`,
+                                position: 'relative',
+                            }}
+                        >
+                            <div
+                                style={{
+                                    position: 'absolute',
+                                    color: 'white',
+                                    textShadow: '1px 1px 2px black',
+                                }}
+                            >
+                                <div style={{ top: '297px', left: '14px', position: 'absolute', fontFamily: "'Merriweather', serif", fontSize: '20px', whiteSpace: 'nowrap' }}>{deal.title}</div>
+                                <div style={{ top: '336px', left: '14px', position: 'absolute', fontFamily: "'Lato', sans-serif", fontSize: '18px', whiteSpace: 'nowrap' }}>{deal.price}</div>
+                                <div style={{ top: '336px', left: '244px', position: 'absolute', fontFamily: "'Lato', sans-serif", fontSize: '18px', whiteSpace: 'nowrap' }}>Yield {deal.yield}</div>
+                                <div style={{ top: '336px', left: '474px', position: 'absolute', fontFamily: "'Lato', sans-serif", fontSize: '18px', whiteSpace: 'nowrap' }}>Sold {deal.sold}</div>
+                                <div style={{ top: '363px', left: '14px', position: 'absolute', fontFamily: "'Lato', sans-serif", fontSize: '18px', whiteSpace: 'nowrap' }}>Tiket - {deal.tiket}</div>
+                                <div style={{ top: '363px', left: '244px', position: 'absolute', fontFamily: "'Lato', sans-serif", fontSize: '18px', whiteSpace: 'nowrap' }}>Days left {deal.days_left}</div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default DealsPage;
