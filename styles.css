@@ -405,38 +405,37 @@ label[for="password"] {
 }
 
 @media (max-width: 767px) {
+
     body {
-        min-width: unset;          /* убираем фикс 1440px */
+        min-width: unset;
         overflow-x: hidden;
     }
 
     .top-bar {
-        min-width: unset;
-        height: 64px;              /* ниже шапка */
-        position: fixed;           /* фикс сверху */
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 0 12px;
+        height: 64px;
+        position: fixed;
+        width: 100%;
+        z-index: 999;
     }
 
     .signup-btn,
-    .login-btn,
-    .signup-out-btn {
-        position: static;          /* убираем absolute */
-        width: auto;
-        height: 36px;
-        padding: 0 12px;
+    .login-btn {
         font-size: 14px;
-        margin-left: 8px;
+        padding: 6px 12px;
+        height: 36px;
+        position: static;
     }
 
-    /* Фон главной страницы */
+    
     .background {
         min-width: unset;
         width: 100%;
-        height: 100vh;             /* на весь экран */
-        top: 64px;                 /* ниже top-bar */
+        height: 100vh;
+        top: 64px;
         position: relative;
     }
 
@@ -451,7 +450,7 @@ label[for="password"] {
         left: 50%;
         top: 30%;
         transform: translateX(-50%);
-        font-size: 28px;           /* меньше шрифт */
+        font-size: 28px;
         text-align: center;
     }
 
@@ -485,8 +484,7 @@ label[for="password"] {
     }
 
     .deals-grid {
-        display: flex;
-        flex-direction: column; /* карточки друг под другом */
+        flex-direction: column;
         gap: 16px;
     }
 
@@ -494,13 +492,14 @@ label[for="password"] {
     .picture2,
     .picture3,
     .picture4 {
-        width: 100%;
-        height: 220px; /* меньше высота */
+        width: 50%;
+        height: 180px;
+        margin: 0 auto;
         background-size: cover;
         background-position: center;
     }
 
-    /* Тексты внутри картинок — чуть ниже и шрифт меньше */
+    /* Тексты внутри картинок */
     .deals-grid > div > div > div {
         font-size: 14px !important;
         white-space: normal !important;
@@ -509,7 +508,7 @@ label[for="password"] {
     /* Логин / Регистрация */
     .login {
         width: 100%;
-        height: 50vh; /* верхняя половина */
+        height: 50vh;
         left: 0;
         top: 64px;
         position: relative;
@@ -519,12 +518,15 @@ label[for="password"] {
 
     .right-side,
     .login-container {
-        position: static;
-        width: 100%;
-        max-width: 90%;
+        width: 90%;
         margin: 0 auto;
-        top: 0;
-        left: 0;
+        text-align: center;
+    }
+
+    .login-container h2 {
+        font-size: 22px;
+        text-align: center;
+        margin-bottom: 16px;
     }
 
     #email,
@@ -549,14 +551,10 @@ label[for="password"] {
         text-align: center;
     }
 
-    .login-container h2 {
-        font-size: 22px;
-        text-align: center;
-    }
 
-    /* Forgot Password message box */
     .message-box {
         width: 90%;
         top: 100px;
     }
+
 }
