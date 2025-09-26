@@ -27,5 +27,5 @@ Check out the working version of the application here: [https://dashing-malasada
 - `GET /`: Root endpoint confirming the API is running.
 - `POST /api/register`: Registers a new user, checks for duplicates, hashes password, and inserts into the database.
 - `POST /api/login`: Authenticates user credentials, compares hashed passwords, and returns a JWT token if valid.
-- `GET /api/deals`: Fetches up to 4 deals from the database, cleans the data (trims and removes quotes), and returns it (open endpoint in current setup).
-- `POST /api/forgot-password`: Checks if email exists, generates a random new password, hashes it, updates the database, and responds with a success message (new password logged in console for demo).
+- `GET /api/deals`: Fetches up to 4 deals from the database, cleans the data, and returns it.
+- `POST /api/forgot-password`: Checks if email exists, generates a random new password, hashes it, updates the database, and responds with a success message.
