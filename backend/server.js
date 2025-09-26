@@ -10,7 +10,6 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-
 app.use((req, res, next) => {
     res.setHeader(
         'Content-Security-Policy',
@@ -19,14 +18,11 @@ app.use((req, res, next) => {
     next();
 });
 
-
 const supabaseUrl = 'https://yqmlhtvekngeplfhgxxm.supabase.co';
 const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-
 const usersTable = 'users';
-
 
 app.get('/', (req, res) => {
     res.json({ message: 'API Backend is running! Use /api/deals for deals data.' });
@@ -62,7 +58,6 @@ app.post('/api/register', async (req, res) => {
     }
 });
 
-
 app.post('/api/login', async (req, res) => {
     const { email, password } = req.body;
     console.log('Login attempt:', { email }); // Лог для отладки
@@ -91,12 +86,11 @@ app.post('/api/login', async (req, res) => {
     }
 });
 
-
 app.get('/api/deals', async (req, res) => {
     try {
         const { data, error } = await supabase
             .from('deals')
-            .select('id, image_url, title, price, yield, sold, Tiket, days_left')
+            .select('id, title, price, yield, sold, Tiket, days_left') // Убрано image_url
             .limit(4);
 
         if (error) {
@@ -106,7 +100,6 @@ app.get('/api/deals', async (req, res) => {
 
         const cleanedData = data.map(item => ({
             id: item.id,
-            image_url: item.image_url.replace(/['"]/g, '').trim(),
             title: item.title.replace(/['"]/g, '').trim(),
             price: item.price.replace(/['"]/g, '').trim(),
             yield: item.yield.replace(/['"]/g, '').trim(),
@@ -150,7 +143,6 @@ app.post('/api/forgot-password', async (req, res) => {
         res.status(500).json({ error: 'Server error' });
     }
 });
-
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Backend on http://localhost:${PORT}`));
