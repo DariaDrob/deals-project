@@ -405,62 +405,84 @@ label[for="password"] {
 }
 
 @media (max-width: 767px) {
-
     body {
-        min-width: unset;
+        min-width: unset; 
         overflow-x: hidden;
     }
 
     .top-bar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 12px;
+        min-width: unset;
         height: 64px;
         position: fixed;
-        width: 100%;
-        z-index: 999;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0 12px;
+        z-index: 20;
     }
 
     .signup-btn,
-    .login-btn {
-        font-size: 14px;
-        padding: 6px 12px;
-        height: 36px;
+    .login-btn,
+    .signup-out-btn {
         position: static;
+        width: auto;
+        height: 36px;
+        padding: 0 12px;
+        font-size: 14px;
+        margin-left: 8px;
+        border-radius: 5px;
     }
 
-    
+    .signup-btn,
+    .signup-out-btn {
+        background-color: #B29F7E;
+        color: #FFFFFF;
+    }
+
+    .login-btn {
+        background-color: transparent;
+        border: 1px solid #FFFFFF;
+        color: #FFFFFF;
+    }
+
+
     .background {
         min-width: unset;
         width: 100%;
         height: 100vh;
         top: 64px;
         position: relative;
+        background-size: cover;
+        background-position: center;
     }
 
     .overlay {
         min-width: unset;
         width: 100%;
         height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
 
     .main-heading {
         width: 90%;
         left: 50%;
         top: 30%;
-        transform: translateX(-50%);
-        font-size: 28px;
+        transform: translate(-50%, -50%);
+        font-size: 32px;
         text-align: center;
+        line-height: 1.2;
     }
 
     .subtext {
         width: 90%;
         left: 50%;
-        top: 48%;
-        transform: translateX(-50%);
-        font-size: 16px;
+        top: 50%;
+        transform: translate(-50%, 0);
+        font-size: 18px;
         text-align: center;
+        line-height: 1.4;
     }
 
     .get-started-btn {
@@ -470,42 +492,72 @@ label[for="password"] {
         transform: translateX(-50%);
         width: 160px;
         height: 44px;
+        font-size: 18px;
     }
 
-    /* Дилы */
+
     .deals-section {
         padding: 20px 16px;
         margin-top: 0;
+        position: relative;
+        top: 100vh;
     }
 
     .deals-heading {
-        font-size: 24px;
+        font-size: 28px;
         text-align: center;
+        margin-bottom: 24px;
     }
 
     .deals-grid {
+        display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 24px;
+        align-items: center;
+        max-width: 100%;
     }
 
     .picture1,
     .picture2,
     .picture3,
     .picture4 {
-        width: 50%;
-        height: 180px;
-        margin: 0 auto;
+        width: 100%;
+        max-width: 315px;
+        height: 200px;
         background-size: cover;
         background-position: center;
     }
 
-    /* Тексты внутри картинок */
-    .deals-grid > div > div > div {
-        font-size: 14px !important;
-        white-space: normal !important;
+
+    .deals-grid > div {
+        position: relative;
+        width: 100%;
+        max-width: 315px;
     }
 
-    /* Логин / Регистрация */
+    .deals-grid > div > div > div {
+        font-size: 16px !important;
+        white-space: normal !important;
+        position: absolute;
+        left: 10px;
+    }
+
+    .deals-grid > div > div > div:nth-child(1) {
+        top: 120px;
+        font-size: 18px !important;
+    }
+
+    .deals-grid > div > div > div:nth-child(2),
+    .deals-grid > div > div > div:nth-child(3),
+    .deals-grid > div > div > div:nth-child(4),
+    .deals-grid > div > div > div:nth-child(5),
+    .deals-grid > div > div > div:nth-child(6) {
+        top: 150px;
+        left: 10px;
+        margin-bottom: 8px;
+    }
+
+
     .login {
         width: 100%;
         height: 50vh;
@@ -516,45 +568,91 @@ label[for="password"] {
         background-position: center;
     }
 
-    .right-side,
     .login-container {
+        position: absolute;
+        top: calc(50vh + 64px);
+        left: 50%;
+        transform: translateX(-50%);
         width: 90%;
-        margin: 0 auto;
-        text-align: center;
+        max-width: 350px;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .login-container h2 {
-        font-size: 22px;
+        font-size: 24px; /* увеличил */
         text-align: center;
-        margin-bottom: 16px;
+        margin-bottom: 24px;
+        position: relative;
+        top: -60vh;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #FFFFFF;
+        z-index: 5;
+        text-shadow: 1px 1px 2px #000;
+    }
+
+    label {
+        font-size: 12px;
+        position: static;
+        margin-bottom: 4px;
+        display: block;
+    }
+
+    label[for="email"],
+    label[for="password"] {
+        position: static;
+        top: unset;
+        left: unset;
     }
 
     #email,
-    #password,
-    .sign-in-btn {
-        width: 100% !important;
+    #password {
         position: static;
-        margin-top: 12px;
+        width: 100%;
+        height: 44px;
+        margin-bottom: 16px;
+        top: unset;
+        left: unset;
+    }
+
+    .sign-in-btn {
+        position: static;
+        width: 100%;
+        height: 44px;
+        top: unset;
+        left: unset;
     }
 
     .forgot {
         position: static;
-        text-align: right;
+        top: unset;
+        left: unset;
         width: 100%;
-        margin-top: 8px;
+        text-align: right;
+        margin-top: -8px;
+        margin-bottom: 16px;
     }
 
     .signup {
         position: static;
+        top: unset;
+        left: unset;
         width: 100%;
-        margin-top: 12px;
         text-align: center;
+        margin-top: 16px;
     }
 
 
     .message-box {
-        width: 90%;
-        top: 100px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        max-width: 300px;
+        z-index: 30;
     }
-
 }
