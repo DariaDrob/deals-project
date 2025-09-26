@@ -15,6 +15,9 @@ export default defineConfig({
         outDir: 'dist',
         rollupOptions: {
             input: 'index.html',
+            output: {
+                assetFileNames: 'assets/[name]-[hash][extname]',
+            },
         },
     },
     resolve: {
