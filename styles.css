@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.body {
+body {
     margin: 0;
     padding: 0;
     min-width: 1440px;
@@ -377,7 +377,7 @@ label[for="password"] {
 
 .message-box {
     position: absolute;
-    top: 80px; /* Выше формы */
+    top: 80px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #fff;
