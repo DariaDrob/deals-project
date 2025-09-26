@@ -406,19 +406,18 @@ label[for="password"] {
 
 @media (max-width: 767px) {
     body {
-        min-width: unset; 
+        min-width: unset;
         overflow-x: hidden;
     }
 
     .top-bar {
         min-width: unset;
-        height: 64px;
+        height: 64px;              
         position: fixed;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: center;
         padding: 0 12px;
-        z-index: 20;
     }
 
     .signup-btn,
@@ -430,19 +429,6 @@ label[for="password"] {
         padding: 0 12px;
         font-size: 14px;
         margin-left: 8px;
-        border-radius: 5px;
-    }
-
-    .signup-btn,
-    .signup-out-btn {
-        background-color: #B29F7E;
-        color: #FFFFFF;
-    }
-
-    .login-btn {
-        background-color: transparent;
-        border: 1px solid #FFFFFF;
-        color: #FFFFFF;
     }
 
 
@@ -452,37 +438,30 @@ label[for="password"] {
         height: 100vh;
         top: 64px;
         position: relative;
-        background-size: cover;
-        background-position: center;
     }
 
     .overlay {
         min-width: unset;
         width: 100%;
         height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
     }
 
     .main-heading {
         width: 90%;
         left: 50%;
         top: 30%;
-        transform: translate(-50%, -50%);
-        font-size: 32px;
+        transform: translateX(-50%);
+        font-size: 28px;
         text-align: center;
-        line-height: 1.2;
     }
 
     .subtext {
         width: 90%;
         left: 50%;
-        top: 50%;
-        transform: translate(-50%, 0);
-        font-size: 18px;
+        top: 48%;
+        transform: translateX(-50%);
+        font-size: 16px;
         text-align: center;
-        line-height: 1.4;
     }
 
     .get-started-btn {
@@ -492,29 +471,23 @@ label[for="password"] {
         transform: translateX(-50%);
         width: 160px;
         height: 44px;
-        font-size: 18px;
     }
 
 
     .deals-section {
         padding: 20px 16px;
         margin-top: 0;
-        position: relative;
-        top: 100vh;
     }
 
     .deals-heading {
-        font-size: 28px;
+        font-size: 24px;
         text-align: center;
-        margin-bottom: 24px;
     }
 
     .deals-grid {
         display: flex;
         flex-direction: column;
-        gap: 24px;
-        align-items: center;
-        max-width: 100%;
+        gap: 16px;
     }
 
     .picture1,
@@ -522,39 +495,15 @@ label[for="password"] {
     .picture3,
     .picture4 {
         width: 100%;
-        max-width: 315px;
-        height: 200px;
+        height: 220px;
         background-size: cover;
         background-position: center;
     }
 
 
-    .deals-grid > div {
-        position: relative;
-        width: 100%;
-        max-width: 315px;
-    }
-
     .deals-grid > div > div > div {
-        font-size: 16px !important;
+        font-size: 14px !important;
         white-space: normal !important;
-        position: absolute;
-        left: 10px;
-    }
-
-    .deals-grid > div > div > div:nth-child(1) {
-        top: 120px;
-        font-size: 18px !important;
-    }
-
-    .deals-grid > div > div > div:nth-child(2),
-    .deals-grid > div > div > div:nth-child(3),
-    .deals-grid > div > div > div:nth-child(4),
-    .deals-grid > div > div > div:nth-child(5),
-    .deals-grid > div > div > div:nth-child(6) {
-        top: 150px;
-        left: 10px;
-        margin-bottom: 8px;
     }
 
 
