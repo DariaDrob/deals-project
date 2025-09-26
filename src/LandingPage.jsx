@@ -36,7 +36,7 @@ function LandingPage() {
                     {deals.map((deal, index) => (
                         <div
                             key={deal.id}
-                            className={`picture${index + 1}`} // Только класс, стиль в CSS
+                            className={`picture${index + 1}`}
                             style={{
                                 width: '630px',
                                 height: '400px',
