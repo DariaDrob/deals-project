@@ -407,46 +407,68 @@ label[for="password"] {
     body {
         width: 100%;
         min-height: 100vh;
-        overflow-x: hidden; 
+        overflow-x: hidden;
     }
 
     .top-bar {
         width: 100%;
-        height: 60px;
+        height: 50px;
+        background-color: #172234;
         position: fixed;
-    }
-
-    .signup-btn,
-    .login-btn {
-        top: 10px;
-        width: 100px;
-        height: 35px;
-        font-size: 12px;
+        top: 0;
+        left: 0;
+        z-index: 10;
     }
 
     .signup-btn {
-        right: 120px;
+        width: 80px;
+        height: 30px;
+        top: 10px;
+        left: auto;
+        right: 100px;
+        font-size: 12px;
+    }
+
+    .signup-out-btn {
+        width: 80px;
+        height: 30px;
+        top: 10px;
+        left: auto;
+        right: 100px;
+        font-size: 12px;
     }
 
     .login-btn {
+        width: 80px;
+        height: 30px;
+        top: 10px;
+        left: auto;
         right: 10px;
+        font-size: 12px;
+    }
+
+    .login {
+        width: 100%;
+        height: 300px;
+        top: 50px;
+        left: 0;
+        background-size: cover;
+        background-position: center;
     }
 
     .background {
         width: 100%;
-        height: 50vh;
-        top: 60px;
-    }
-
-    .overlay {
-        width: 100%;
-        height: 50vh;
-        top: 60px;
+        height: 300px;
+        top: 50px;
+        left: 0;
+        background-size: cover;
+        background-position: center;
     }
 
     .deals-section {
         padding: 10px;
-        margin-top: 50vh;
+        margin-top: 350px;
+        width: 100%;
     }
 
     .deals-heading {
@@ -457,6 +479,7 @@ label[for="password"] {
     .deals-grid {
         grid-template-columns: 1fr;
         gap: 10px;
+        width: 100%;
     }
 
     .picture1,
@@ -467,22 +490,36 @@ label[for="password"] {
         height: 200px;
     }
 
+    .overlay {
+        width: 100%;
+        height: 300px;
+        top: 50px;
+        left: 0;
+    }
+
     .main-heading {
-        top: 20%;
+        width: 90%;
+        height: auto;
+        top: 50px;
+        left: 5%;
         font-size: 20px;
         text-align: center;
     }
 
     .subtext {
-        top: 30%;
+        width: 90%;
+        top: 100px;
+        left: 5%;
         font-size: 14px;
         text-align: center;
     }
 
     .get-started-btn {
-        top: 45%;
         width: 120px;
         height: 35px;
+        top: 150px;
+        left: 50%;
+        transform: translateX(-50%);
         font-size: 14px;
     }
 
@@ -492,47 +529,79 @@ label[for="password"] {
         transform: translateX(-50%);
         width: 90%;
         max-width: 300px;
-        margin-top: 60px;
+        margin-top: 320px;
         padding: 15px;
     }
 
     .login-container h2 {
         font-size: 18px;
+        text-align: center;
     }
 
-    label[for="email"],
-    label[for="password"] {
+    label[for="email"] {
+        top: 0;
+        left: 0;
         margin-bottom: 5px;
+        display: block;
     }
 
-    #email,
+    label[for="password"] {
+        top: 0;
+        left: 0;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    #email {
+        width: 100%;
+        height: 40px;
+        top: 0;
+        left: 0;
+        margin-bottom: 10px;
+    }
+
     #password {
         width: 100%;
+        height: 40px;
+        top: 0;
+        left: 0;
         margin-bottom: 10px;
     }
 
     .sign-in-btn {
         width: 100%;
         height: 40px;
+        top: 0;
+        left: 0;
         font-size: 14px;
     }
 
     .forgot {
+        top: 0;
+        left: 0;
+        width: 100%;
         text-align: right;
+        margin-top: 5px;
     }
 
     .signup {
+        top: 0;
+        left: 0;
+        width: 100%;
         text-align: center;
+        margin-top: 5px;
     }
 
     .right-side {
+        top: 50px;
+        left: 0;
         width: 100%;
-        height: 50vh;
-        top: 60px;
+        height: 300px;
     }
 
     .message-box {
-        top: 70px;
+        top: 50px;
         width: 80%;
+        left: 10%;
     }
 }
