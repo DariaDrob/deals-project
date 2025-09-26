@@ -405,22 +405,27 @@ label[for="password"] {
 
 @media (max-width: 768px) {
     body {
-        min-width: 100%;
+        width: 100%;
         min-height: 100vh;
+        overflow-x: hidden; 
     }
 
     .top-bar {
-        min-width: 100%;
+        width: 100%;
         height: 60px;
+        position: fixed;
     }
 
     .signup-btn,
     .login-btn {
         top: 10px;
-        right: 120px; 
         width: 100px;
+        height: 35px;
         font-size: 12px;
-        position: absolute;
+    }
+
+    .signup-btn {
+        right: 120px;
     }
 
     .login-btn {
@@ -428,13 +433,13 @@ label[for="password"] {
     }
 
     .background {
-        min-width: 100%;
+        width: 100%;
         height: 50vh;
         top: 60px;
     }
 
     .overlay {
-        min-width: 100%;
+        width: 100%;
         height: 50vh;
         top: 60px;
     }
@@ -446,14 +451,12 @@ label[for="password"] {
 
     .deals-heading {
         font-size: 20px;
-        margin-bottom: 20px;
-        text-align: center;
+        margin-bottom: 15px;
     }
 
     .deals-grid {
         grid-template-columns: 1fr;
         gap: 10px;
-        max-width: 100%;
     }
 
     .picture1,
@@ -462,98 +465,74 @@ label[for="password"] {
     .picture4 {
         width: 100%;
         height: 200px;
-        background-size: cover;
-        background-position: center;
     }
 
     .main-heading {
-        width: 90%;
         top: 20%;
-        left: 5%;
-        font-size: 24px;
+        font-size: 20px;
         text-align: center;
     }
 
     .subtext {
-        width: 90%;
         top: 30%;
-        left: 5%;
         font-size: 14px;
         text-align: center;
     }
 
     .get-started-btn {
         top: 45%;
-        left: 50%;
-        transform: translateX(-50%);
         width: 120px;
+        height: 35px;
         font-size: 14px;
     }
 
-
     .login-container {
-        position: relative;
         top: 0;
         left: 50%;
         transform: translateX(-50%);
         width: 90%;
         max-width: 300px;
         margin-top: 60px;
-        padding: 20px;
-        border-radius: 10px;
+        padding: 15px;
     }
 
     .login-container h2 {
-        font-size: 20px;
-        text-align: center;
+        font-size: 18px;
     }
 
     label[for="email"],
     label[for="password"] {
-        display: block;
         margin-bottom: 5px;
-        color: #fff;
     }
 
     #email,
     #password {
         width: 100%;
         margin-bottom: 10px;
-        padding: 8px;
-        border: none;
-        border-radius: 5px;
     }
 
     .sign-in-btn {
         width: 100%;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        background: #B29F7E;
-        color: #fff;
+        height: 40px;
         font-size: 14px;
     }
 
-    .forgot,
+    .forgot {
+        text-align: right;
+    }
+
     .signup {
         text-align: center;
-        margin-top: 10px;
-        color: #fff;
     }
 
     .right-side {
         width: 100%;
-        height: 200px;
+        height: 50vh;
         top: 60px;
-        left: 0;
-        background-size: cover;
-        background-position: center;
     }
 
     .message-box {
         top: 70px;
         width: 80%;
-        left: 10%;
-        text-align: center;
     }
 }
