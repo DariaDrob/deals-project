@@ -404,7 +404,7 @@ label[for="password"] {
 }
 
 @media (max-width: 768px) {
-    .body {
+    body {
         min-width: 100%;
         min-height: 100vh;
     }
@@ -415,20 +415,16 @@ label[for="password"] {
     }
 
     .signup-btn,
-    .signup-out-btn,
     .login-btn {
         top: 10px;
-        left: auto;
-        right: 10px;
+        right: 120px; 
         width: 100px;
         font-size: 12px;
+        position: absolute;
     }
 
-    .login {
-        width: 100%;
-        height: 50vh;
-        top: 60px;
-        left: 0;
+    .login-btn {
+        right: 10px;
     }
 
     .background {
@@ -445,7 +441,7 @@ label[for="password"] {
 
     .deals-section {
         padding: 10px;
-        margin-top: 60vh;
+        margin-top: 50vh;
     }
 
     .deals-heading {
@@ -466,6 +462,8 @@ label[for="password"] {
     .picture4 {
         width: 100%;
         height: 200px;
+        background-size: cover;
+        background-position: center;
     }
 
     .main-heading {
@@ -485,20 +483,24 @@ label[for="password"] {
     }
 
     .get-started-btn {
-        top: 40%;
+        top: 45%;
         left: 50%;
         transform: translateX(-50%);
         width: 120px;
         font-size: 14px;
     }
 
+
     .login-container {
+        position: relative;
         top: 0;
         left: 50%;
         transform: translateX(-50%);
         width: 90%;
         max-width: 300px;
         margin-top: 60px;
+        padding: 20px;
+        border-radius: 10px;
     }
 
     .login-container h2 {
@@ -508,42 +510,35 @@ label[for="password"] {
 
     label[for="email"],
     label[for="password"] {
-        position: relative;
-        top: 0;
-        left: 0;
+        display: block;
         margin-bottom: 5px;
+        color: #fff;
     }
 
     #email,
     #password {
-        position: relative;
         width: 100%;
-        top: 0;
         margin-bottom: 10px;
+        padding: 8px;
+        border: none;
+        border-radius: 5px;
     }
 
     .sign-in-btn {
-        position: relative;
         width: 100%;
-        top: 0;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: #B29F7E;
+        color: #fff;
+        font-size: 14px;
     }
 
-    .forgot {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        margin-top: 10px;
-    }
-
+    .forgot,
     .signup {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
         text-align: center;
         margin-top: 10px;
+        color: #fff;
     }
 
     .right-side {
@@ -551,10 +546,14 @@ label[for="password"] {
         height: 200px;
         top: 60px;
         left: 0;
+        background-size: cover;
+        background-position: center;
     }
 
     .message-box {
         top: 70px;
         width: 80%;
+        left: 10%;
+        text-align: center;
     }
 }
