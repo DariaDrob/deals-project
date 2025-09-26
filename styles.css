@@ -404,81 +404,90 @@ label[for="password"] {
     background-color: #218838;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     body {
-        width: 100%;
-        min-height: 100vh;
+        min-width: unset;          /* убираем фикс 1440px */
         overflow-x: hidden;
     }
 
     .top-bar {
-        width: 100%;
-        height: 60px;
-        background-color: #172234;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 10;
+        min-width: unset;
+        height: 64px;              /* ниже шапка */
+        position: fixed;           /* фикс сверху */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 12px;
     }
 
-    .signup-btn {
-        width: 80px;
-        height: 30px;
-        top: 15px;
-        left: 10px; /* Сдвигаем влево */
-        font-size: 12px;
-    }
-
+    .signup-btn,
+    .login-btn,
     .signup-out-btn {
-        width: 80px;
-        height: 30px;
-        top: 15px;
-        left: 10px;
-        font-size: 12px;
+        position: static;          /* убираем absolute */
+        width: auto;
+        height: 36px;
+        padding: 0 12px;
+        font-size: 14px;
+        margin-left: 8px;
     }
 
-    .login-btn {
-        width: 80px;
-        height: 30px;
-        top: 15px;
-        left: 100px; /* Сдвигаем вправо */
-        font-size: 12px;
-    }
-
-    .login {
-        width: 100%;
-        height: 300px;
-        top: 60px;
-        left: 0;
-        background-size: contain; /* Фиксирует под экран, без растяжения */
-        background-position: center;
-    }
-
+    /* Фон главной страницы */
     .background {
+        min-width: unset;
         width: 100%;
-        height: 300px;
-        top: 60px;
-        left: 0;
-        background-size: contain; /* Фиксирует под экран, без растяжения */
-        background-position: center;
+        height: 100vh;             /* на весь экран */
+        top: 64px;                 /* ниже top-bar */
+        position: relative;
     }
 
-    .deals-section {
-        padding: 10px;
-        margin-top: 400px;
+    .overlay {
+        min-width: unset;
         width: 100%;
+        height: 100%;
+    }
+
+    .main-heading {
+        width: 90%;
+        left: 50%;
+        top: 30%;
+        transform: translateX(-50%);
+        font-size: 28px;           /* меньше шрифт */
+        text-align: center;
+    }
+
+    .subtext {
+        width: 90%;
+        left: 50%;
+        top: 48%;
+        transform: translateX(-50%);
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .get-started-btn {
+        position: absolute;
+        bottom: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 160px;
+        height: 44px;
+    }
+
+    /* Дилы */
+    .deals-section {
+        padding: 20px 16px;
+        margin-top: 0;
     }
 
     .deals-heading {
-        font-size: 20px;
-        margin-bottom: 15px;
+        font-size: 24px;
         text-align: center;
     }
 
     .deals-grid {
-        grid-template-columns: 1fr; /* Одна колонка */
-        gap: 10px;
-        width: 100%;
+        display: flex;
+        flex-direction: column; /* карточки друг под другом */
+        gap: 16px;
     }
 
     .picture1,
@@ -486,109 +495,68 @@ label[for="password"] {
     .picture3,
     .picture4 {
         width: 100%;
-        height: 200px;
-    }
-
-    .overlay {
-        width: 100%;
-        height: 300px;
-        top: 60px;
-        left: 0;
-    }
-
-    .main-heading {
-        width: 90%;
-        height: auto;
-        top: 80px;
-        left: 5%;
-        font-size: 20px;
-        text-align: center;
-    }
-
-    .subtext {
-        width: 90%;
-        top: 120px;
-        left: 5%;
-        font-size: 12px;
-        text-align: center;
-    }
-
-    .get-started-btn {
-        width: 120px;
-        height: 35px;
-        top: 200px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 14px;
-    }
-
-    .login-container {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 90%;
-        max-width: 300px;
-        margin: 350px auto 20px;
-        padding: 15px;
-        background: rgba(0, 0, 0, 0.7);
-        border-radius: 10px;
-        z-index: 3;
-    }
-
-    .login-container h2 {
-        font-size: 18px;
-        text-align: center;
-        color: #fff;
-    }
-
-    label[for="email"],
-    label[for="password"] {
-        margin-bottom: 5px;
-        color: #fff;
-        display: block;
-    }
-
-    #email,
-    #password {
-        width: 100%;
-        height: 40px;
-        margin-bottom: 10px;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        background-color: #eee;
-    }
-
-    .sign-in-btn {
-        width: 100%;
-        height: 40px;
-        font-size: 14px;
-    }
-
-    .forgot {
-        text-align: center;
-        margin-top: 10px;
-    }
-
-    .signup {
-        text-align: center;
-        margin-top: 10px;
-        color: #fff;
-    }
-
-    .right-side {
-        width: 100%;
-        height: 300px;
-        top: 60px;
-        left: 0;
-        background-size: contain;
+        height: 220px; /* меньше высота */
+        background-size: cover;
         background-position: center;
     }
 
-    .message-box {
-        top: 70px;
-        width: 80%;
-        left: 10%;
+    /* Тексты внутри картинок — чуть ниже и шрифт меньше */
+    .deals-grid > div > div > div {
+        font-size: 14px !important;
+        white-space: normal !important;
+    }
+
+    /* Логин / Регистрация */
+    .login {
+        width: 100%;
+        height: 50vh; /* верхняя половина */
+        left: 0;
+        top: 64px;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .right-side,
+    .login-container {
+        position: static;
+        width: 100%;
+        max-width: 90%;
+        margin: 0 auto;
+        top: 0;
+        left: 0;
+    }
+
+    #email,
+    #password,
+    .sign-in-btn {
+        width: 100% !important;
+        position: static;
+        margin-top: 12px;
+    }
+
+    .forgot {
+        position: static;
+        text-align: right;
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    .signup {
+        position: static;
+        width: 100%;
+        margin-top: 12px;
         text-align: center;
+    }
+
+    .login-container h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    /* Forgot Password message box */
+    .message-box {
+        width: 90%;
+        top: 100px;
     }
 }
